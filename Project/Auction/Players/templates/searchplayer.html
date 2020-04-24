@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load bootstrap%}
+{% block content %}
+
+<form method="GET" action="">
+{{ filter.form|bootstrap}}
+
+<button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+    {% for pla in filter.qs %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ pla.player_name }}</a>
+            </div>
+            <p class="article-content">{{ pla.player_country }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
